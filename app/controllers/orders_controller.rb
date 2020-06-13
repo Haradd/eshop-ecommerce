@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
 
   # POST
   def create
-    byebug
+    clear_cart
     access_token = get_access_token
     sum_up_products
 
@@ -35,6 +35,10 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def clear_cart
+    cookies.delete :cart
+  end
 
   def sum_up_products
 
