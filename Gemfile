@@ -6,9 +6,9 @@ ruby '2.6.5'
 gem 'activeadmin'
 gem 'record_tag_helper'
 
+gem 'ffaker'
 
 gem 'bootstrap-sass-extras'
-
 
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sassc-rails', '>= 2.1.0'
@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap-generators'
 gem 'simple_form'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -64,4 +65,8 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'launchy'
+end
+
+group :production do
+  gem 'pg'
 end

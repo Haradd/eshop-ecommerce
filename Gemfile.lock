@@ -123,6 +123,7 @@ GEM
       railties (>= 4.2.0)
     faker (2.12.0)
       i18n (>= 1.6, < 2)
+    ffaker (2.15.0)
     ffi (1.13.1)
     foreman (0.87.1)
     formtastic (3.1.5)
@@ -360,6 +361,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   faker
+  ffaker
   foreman
   high_voltage
   hub
