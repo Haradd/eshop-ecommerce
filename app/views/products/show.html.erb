@@ -1,23 +1,39 @@
 <div class="page-header">
+  <h1><%= @product.name %></h1>
+</div>
+
+<div class='row'>
+  <div class="col-md-8 col-md-offset-2">
+    <div class="col-item">
+      <div class="photo">
+        <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+      </div>
+      <div class="info">
+        <div class="row">
+          <div class="price col-md-6">
+
+
+            <p>
+              <%= @product.description %>
+            </p>
+            <h2 class="price-text-color">
+              <%= @product.price %>
+              <%= link_to add_to_cart_product_path(@product.id), class: 'btn btn-success' do %>
+                <span class="fa fa-shopping-cart"></span>
+                Add to cart
+              <% end %>
+            </h2>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='row'>
   <%= link_to products_path, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
-  <%= link_to edit_product_path(@product), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
-  <% end %>
-  <h1>Show product</h1>
 </div>
-
-<dl class="dl-horizontal">
-  <dt>Name:</dt>
-  <dd><%= @product.name %></dd>
-
-  <dt>Description:</dt>
-  <dd><%= @product.description %></dd>
-
-  <dt>Price:</dt>
-  <dd><%= @product.price %></dd>
-
-</dl>
