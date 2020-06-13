@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  root :to => "products#index"
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  resources :products do
+  resources :products, only: [:index, :show] do
     member do
       get :add_to_cart
       get :remove_from_cart
@@ -11,5 +13,11 @@ Rails.application.routes.draw do
 
   resources :carts, only: [:index] do
 
+  end
+
+  resources :orders, only: [:create] do
+    collection do
+      post :notify
+    end
   end
 end
