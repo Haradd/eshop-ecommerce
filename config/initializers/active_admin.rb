@@ -170,6 +170,10 @@ ActiveAdmin.setup do |config|
   #
   config.localize_format = :long
 
+  config.register_stylesheet 'active_admin/json_editor.css'
+  config.register_javascript 'active_admin/json_editor.js'
+
+
   # == Setting a Favicon
   #
   # config.favicon = 'favicon.ico'
