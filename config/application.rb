@@ -12,8 +12,6 @@ module Eshop
     config.load_defaults 5.2
 
     config.active_record.schema_format = :sql
-
-    config.web_console.whitelisted_ips = ['83.8.201.135', '185.68.12.28']
     Dotenv::Railtie.load
 
     # Settings in config/environments/* take precedence over those specified here.
