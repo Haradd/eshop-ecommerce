@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+      <div class="panel panel-info">
+      <form action="/orders" method="post">
+        <div class="panel-heading">
+          <div class="panel-title">
+            <div class="row">
+              <div class="col-xs-6">
+                <h5><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</h5>
+              </div>
+              <div class="col-xs-6">
+                
+                <%= link_to products_path, class: "btn btn-primary btn-sm right btn-block" do %>
+                  <span class="glyphicon glyphicon-share-alt"></span>
+                  Continue shopping
+                  <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <% if @products.present? %>
+          <% @products.each do |product| %>
+          <div class="row">
+            <div class="col-xs-2"><img class="img-responsive" src="http://placehold.it/100x70">
+            </div>
+            <div class="col-xs-4">
+              <h4 class="product-name"><strong><%= product.name %> </strong></h4>
+              <h4><small><%= product.description %> </small></h4>
+            </div>
+            <div class="col-xs-6">
+              <div class="col-xs-6 text-right">
+                <h6><strong><span id="<%= product.id %>-price"><%= product.price %></span> <span class="text-muted">x</span></strong></h6>
+                <input type="hidden" name="price[<%= product.id %>]" value="<%= product.price %>">
+              </div>
+              <div class="col-xs-4">
+                <input id="<%= product.id %>-quantity" name="quantity[<%= product.id %>]"type="text" class="form-control input-sm" value="1" onchange="calculateTotalValue(<%= @products.pluck(:id) %>)">
+              </div>
+              <div class="col-xs-2">
+                <button type="button" class="btn btn-link btn-xs">
+                
+
+                <%= link_to remove_from_cart_product_path(product.id) do %>
+                <span class="glyphicon glyphicon-trash"> </span>
+                <% end %>
+                </button>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <% end %>
+          <hr>
+        </div>
+        <div class="panel-footer">
+          <div class="row text-center">
+            <div class="col-xs-9">
+              <h4 class="text-right">Total <strong>$ <span id='total'>50.00</span></strong></h4>
+            </div>
+            <div class="col-xs-3">
+              <button type="submit" class="btn btn-success btn-block">
+              Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+window.onload = calculateTotalValue(<%= @products.pluck(:id) %>);
+</script>
