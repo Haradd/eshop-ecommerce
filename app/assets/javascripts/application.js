@@ -13,5 +13,25 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery
+//= require bootstrap-sprockets
 //= require bootstrap
 //= require_tree .
+
+
+
+function calculateTotalValue(ids) {
+  console.log(ids);
+
+  let total = 0.0
+  $.each(ids, function (_index, id) {
+
+    let price = $("#" + id + "-price").text()
+
+    let quantity = $("#" + id + "-quantity").val()
+    total += Number(price) * Number(quantity)
+    });
+
+  $("#total").text(total.toFixed(2))
+
+}
