@@ -7,6 +7,11 @@ gem 'activeadmin'
 gem 'record_tag_helper'
 
 
+gem 'bootstrap-sass-extras'
+
+
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'sassc-rails', '>= 2.1.0'
 
 gem 'rails', '~> 5.2.4', '>= 5.2.4.3'
 gem 'puma', '~> 3.11'
@@ -33,7 +38,6 @@ group :test do
   gem 'chromedriver-helper'
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'bootstrap', '~> 4.0.0'
 gem 'devise'
 gem 'high_voltage'
 gem 'jquery-rails'
@@ -54,6 +58,8 @@ group :development, :test do
   gem 'pry-rescue'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'dotenv-rails'
+
 end
 group :test do
   gem 'database_cleaner'
