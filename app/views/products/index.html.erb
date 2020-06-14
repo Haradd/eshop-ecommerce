@@ -3,7 +3,7 @@
 </div>
 
 <% @products.each_slice(3) do |products| %>
-<div class="row">
+<div class="row mt-5">
 
   <% products.each do |product| %>
   <div class="col-sm-3">
@@ -13,7 +13,7 @@
       </div>
       <div class="info">
         <div class="row">
-          <div class="price col-md-6">
+          <div class="price col-md-12">
             <h5>
               <%= product.name %>
             </h5>
