@@ -5,4 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+
+12.times do
+  Product.create(
+    name: FFaker::Lorem.words(rand(3..6)).join(" "),
+    description: FFaker::Lorem.sentence,
+    price: rand(9..109).round(2)
+  )
+end
